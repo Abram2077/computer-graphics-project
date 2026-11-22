@@ -382,48 +382,6 @@ building.receiveShadow = true;
 school.add(building);
 
 // ============================================================
-// EXTERIOR FACADE BANDS
-// ============================================================
-
-const facadeBand =
-    new THREE.Mesh(
-        new THREE.BoxGeometry(
-            28.3,
-            0.55,
-            0.45
-        ),
-        trimMat
-    );
-
-facadeBand.position.set(
-    0,
-    2.2,
-    8.12
-);
-
-facadeBand.castShadow = true;
-
-school.add(facadeBand);
-
-const upperFacadeBand =
-    new THREE.Mesh(
-        new THREE.BoxGeometry(
-            28.3,
-            0.4,
-            0.4
-        ),
-        trimMat
-    );
-
-upperFacadeBand.position.set(
-    0,
-    7.2,
-    8.12
-);
-
-school.add(upperFacadeBand);
-
-// ============================================================
 // ROOF
 // ============================================================
 
@@ -544,22 +502,52 @@ entrance.castShadow = true;
 
 school.add(entrance);
 
-const entranceGlass = new THREE.Mesh(
-    new THREE.BoxGeometry(
-        4,
-        6,
-        0.1
-    ),
-    glassMat
+// ============================================================
+// ENTRANCE WALL SECTIONS
+// ============================================================
+
+const entranceWallLeft =
+    new THREE.Mesh(
+        new THREE.BoxGeometry(
+            11.5,
+            7,
+            0.45
+        ),
+        wallMat
+    );
+
+entranceWallLeft.position.set(
+    -8.75,
+    3.5,
+    8
 );
 
-entranceGlass.position.set(
+entranceWallLeft.castShadow = true;
+entranceWallLeft.receiveShadow = true;
+
+school.add(entranceWallLeft);
+
+
+const entranceWallRight =
+    new THREE.Mesh(
+        new THREE.BoxGeometry(
+            11.5,
+            7,
+            0.45
+        ),
+        wallMat
+    );
+
+entranceWallRight.position.set(
     0,
     3.5,
-    7.7
+    -8
 );
 
-school.add(entranceGlass);
+entranceWallRight.castShadow = true;
+entranceWallRight.receiveShadow = true;
+
+school.add(entranceWallRight);
 
 // Entrance top trim
 const entranceTopTrim =
@@ -706,7 +694,7 @@ function createSignTexture() {
         256
     );
 
-    ctx.fillStyle = "#25352e";
+    ctx.fillStyle = "#263238";
 
     ctx.font =
         "bold 78px Arial";
@@ -734,24 +722,31 @@ function createSignTexture() {
     return texture;
 }
 
+// ============================================================
+// SCHOOL SIGN TEXT
+// ============================================================
+
 const signText =
     new THREE.Mesh(
         new THREE.PlaneGeometry(
             10.8,
             1.7
         ),
-        new THREE.MeshStandardMaterial({
+        new THREE.MeshBasicMaterial({
             map: createSignTexture(),
-            roughness: 0.62,
-            metalness: 0.02
+            transparent: true,
+            side: THREE.DoubleSide,
+            depthWrite: false
         })
     );
 
 signText.position.set(
     0,
     8.5,
-    7.77
+    8.25
 );
+
+signText.rotation.y = 0;
 
 school.add(signText);
 
