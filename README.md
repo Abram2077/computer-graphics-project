@@ -127,7 +127,6 @@ This project applies several concepts covered in Computer Graphics, including:
 
 ## Project Structure
 
-```text
 Computer Graphics Project/
 │
 ├── index.html
@@ -138,7 +137,6 @@ Computer Graphics Project/
 │
 └── src/
     └── main.js
-```
 
 Additional files and assets may be included depending on the final project configuration.
 
@@ -146,35 +144,25 @@ Additional files and assets may be included depending on the final project confi
 
 ### 1. Clone the repository
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
+git clone https://github.com/Abram2077/computer-graphics-project.git
 
 ### 2. Enter the project directory
 
-```bash
-cd YOUR_PROJECT_FOLDER
-```
+cd computer-graphics-project
 
 ### 3. Install dependencies
 
-```bash
-npm install
-```
+npm install 
 
 ### 4. Start the development server
 
-```bash
 npm run dev
-```
 
 ### 5. Open the local application
 
 Open the URL provided by Vite, normally:
 
-```text
 http://localhost:5173/
-```
 
 ## Running the Project
 
